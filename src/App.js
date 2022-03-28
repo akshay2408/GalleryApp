@@ -1,11 +1,9 @@
-import Header from './Header/Header'
-import MediaCard from './Gallery/Gallery';
+import MainComponents from "./Components/MainComponents";
 
 function App() {
   return (
     <div className="App">
-      <Header/>
-      <MediaCard/>
+    <MainComponents />
     </div>
   );
 }

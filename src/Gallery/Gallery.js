@@ -1,58 +1,45 @@
-import * as React from 'react';
-import Card from '@mui/material/Card';
+import React, { useEffect, useState } from 'react';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import { Grid, Paper } from '@mui/material';
 import { Box } from '@mui/system';
-import MilkShake from '../assets/images/MilkShake.jpg';
 import { GalleryCard } from './Styled';
 
-function MediaCard() {
+function MediaCard({images}) {
   return (
-    <Box sx={{
-      display: 'flex'
-    }}>
-      <GalleryCard>
-        <CardMedia
-          component="img"
-          height="260"
-          image={MilkShake}
-          alt="green iguana"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            Gallery
-          </Typography>
-        </CardContent>
-      </GalleryCard>
-
-      <GalleryCard>
-        <CardMedia
-          component="img"
-          height="260"
-          image={MilkShake}
-          alt="green iguana"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            Gallery
-          </Typography>
-        </CardContent>
-      </GalleryCard>
-      <GalleryCard>
-        <CardMedia
-          component="img"
-          height="260"
-          image={MilkShake}
-          alt="green iguana"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            Gallery
-          </Typography>
-        </CardContent>
-      </GalleryCard>
+    <>
+    <Box>
+    <Grid sx={{ flexGrow: 1 }} container spacing={2}>
+    <Grid item xs={12} container>
+    <Grid container justifyContent="center">
+        {images && images.map((img) => {
+          return (
+            <Grid item xs={4} md={4}>
+                <GalleryCard>
+              <CardMedia
+                component="img"
+                height="260"
+                width="260"
+                image={img.imgURL}
+                alt="green iguana"
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  {img.title}
+                </Typography>
+              </CardContent>
+            </GalleryCard>
+          </Grid>
+          )
+        })
+        }        
+    </Grid>
+    </Grid>
+    </Grid>
     </Box>
+    </>
+
   );
 }
 
